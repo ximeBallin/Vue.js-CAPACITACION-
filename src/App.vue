@@ -24,12 +24,9 @@ const arrayFrutas = [
 
 <template>
   <h1>Hola {{ name.toUpperCase() }}</h1>
-
   <ul>
     <template v-for="item in arrayFrutas" :key="item.name">
-      <li v-if="item.stock > 0">
-        {{ item.name }} - {{ item.price }}
-      </li>
+      <li v-if="item.stock > 0">{{ item.name }} - {{ item.price }}</li>
     </template>
   </ul>
 </template>
