@@ -1,13 +1,38 @@
 <script setup>
-const name = "Vue dinámico";
-const arrayFrutas = ["🍎", "🍌", "🍉", "🍓", "🍒"];
+const name = "Vue dinamico"
+const arrayFrutas =[
+  {
+    name: "Manzana",
+    price: "$1.00",
+    description: "Una manzana",
+    id:3
+  },
+  {
+    name: "Pera",
+    price: "$2.00",
+    description: "Una pera",
+    id:2
+  },
+  {
+    name: "Naranja",
+    price: "$3.00",
+    description: "Una naranja",
+    id:1
+  }
+
+];
+
 </script>
 
 <template>
   <h1>Hola {{ name.toUpperCase() }}</h1>
   <ul>
-    <li v-for="(fruta, index) in arrayFrutas" :key="index">
-      {{ index }} - {{ fruta }}
+    <li
+        v-for ="fruta in arrayFrutas"
+        :key="fruta.name"
+
+    >
+      {{fruta.name}}-{{fruta.price}}-{{fruta.description}}
     </li>
   </ul>
 </template>
