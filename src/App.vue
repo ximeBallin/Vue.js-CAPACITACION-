@@ -1,44 +1,21 @@
+<script setup>
+const name = "Vue dinámico";
+
+//metodos - methods
+
+const handleClick= ( )=>{
+  console.log('me diste clisck')
+}
+</script>
+
 <template>
-  <div>
-    <h2>Lista de usuarios:</h2>
-    <ul>
-      <template
-          v-for="(user, index) in users"
-          :key="user.id"
-      >
-        <li>
-          <h3>{{ user.name }}</h3>
-          <ul>
-            <template
-                v-for="(post, index) in user.posts"
-                :key="post.id"
-            >
-              <li>{{ post.title }}</li>
-            </template>
-          </ul>
-        </li>
-      </template>
-    </ul>
-  </div>
+  <h1>Hola {{ name.toUpperCase() }}</h1>
+  <button v-on:click="handleClick()">Activame 1</button>
+  <button @on:click="handleClick()">Activame 2</button>
 </template>
 
-<script setup>
-const users = [
-  {
-    id: 1,
-    name: 'Juan',
-    posts: [
-      { id: 1, title: 'Mi primer post' },
-      { id: 2, title: 'Mi segundo post' },
-    ]
-  },
-  {
-    id: 2,
-    name: 'Maria',
-    posts: [
-      { id: 3, title: 'Mi tercer post' },
-      { id: 4, title: 'Mi cuarto post' },
-    ]
-  }
-]
-</script>
+<style>
+h1 {
+  color: red;
+}
+</style>
