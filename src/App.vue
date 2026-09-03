@@ -1,17 +1,16 @@
 <script setup>
 const name = "Vue dinámico";
 
-//metodos - methods
-
-const handleClick= ( )=>{
-  console.log('me diste clisck')
-}
+//metodo - methods
+const handleClick = (message) => {
+  console.log(message);
+};
 </script>
 
 <template>
   <h1>Hola {{ name.toUpperCase() }}</h1>
-  <button v-on:click="handleClick()">Activame 1</button>
-  <button @on:click="handleClick()">Activame 2</button>
+  <button v-on:click="handleClick('Texto 1')">Activame 1</button>
+  <button @click="handleClick('Texto 2')">Activame 2</button>
 </template>
 
 <style>
