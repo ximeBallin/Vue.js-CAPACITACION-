@@ -1,7 +1,7 @@
 <script setup>
 import BlogPost from "./components/BlogPost.vue";
 import PaginatePost from "./components/PaginatePost.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
 
 const posts = ref([]);
@@ -27,17 +27,19 @@ const prev = () => {
   }
 };
 
-fetch("https://jsonplaceholder.typicode.com/posts")
-    .then((res) => res.json())
-    .then((data) => {
-      posts.value = data;
-    })
-    .catch(e => console.log(e))
-    .finally(() => {
-      setTimeout(() => {
-        loading.value = false;
-      }, 200);
-    });
+onMounted(async () => {
+  loading.value = true;
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    posts.value = await res.json();
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setTimeout(() => {
+      loading.value = false;
+    }, 2000);
+  }
+});
 </script>
 
 <template>
