@@ -15,6 +15,8 @@ const emit = defineEmits(['cambiarFavoritoNombre']);
 
 // Si deseas usar la función emit en la lógica de script, se hace así:
 // emit('cambiarFavoritoNombre', props.title);
+
+
 </script>
 
 <template>

@@ -13,6 +13,10 @@ const favorito = ref("");
 const cambiarFavorito = (title) => {
   favorito.value = title;
 };
+
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(res => res.json())
+    .then((data) => { posts.value = data });
 </script>
 
 <template>
