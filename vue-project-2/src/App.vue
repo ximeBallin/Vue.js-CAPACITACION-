@@ -27,7 +27,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
     <PaginatePost class="mb-2"></PaginatePost>
 
     <BlogPost
-        v-for="post in posts"
+        v-for="post in posts.slice(0, 3)"
         :key="post.id"
         :title="post.title"
         :id="post.id"
