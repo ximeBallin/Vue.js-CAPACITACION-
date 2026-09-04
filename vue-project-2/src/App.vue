@@ -1,27 +1,28 @@
 <script setup>
-import ButtonCounter from "@/components/ButtonCounter.vue";
-import BlogPost from "@/components/BlogPost.vue";
+import ButtonCounter from "./components/ButtonCounter.vue";
+import BlogPost from "./components/BlogPost.vue";
+import { ref } from "vue";
+
+const posts = ref([
+  { title: "Post 1", id: 1, body: "descripción 1" },
+  { title: "Post 2", id: 2, body: "descripción 2" },
+  { title: "Post 3", id: 3, body: "descripción 3" },
+  { title: "Post 4", id: 4 },
+]);
 </script>
 
 <template>
   <div class="container">
     <h1>APP</h1>
+    <ButtonCounter></ButtonCounter>
     <button-counter></button-counter>
-    <button-counter></button-counter>
 
-    <blog-post title="Post 1" :id="1" body="descripcion 1" />
-    <blog-post title="Post 2" :id="2" body="descripcion 2" />
-    <blog-post title="Post 3" :id="3" body="descripcion 3" />
-    <blog-post title="Post 4" :id="4" body="descripcion 4" />
-
-
-
+    <BlogPost
+        v-for="post in posts"
+        :key="post.id"
+        :title="post.title"
+        :id="post.id"
+        :body="post.body"
+    ></BlogPost>
   </div>
-
-
 </template>
-
-
-
-
-
