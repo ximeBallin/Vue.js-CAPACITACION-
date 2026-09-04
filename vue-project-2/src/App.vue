@@ -1,5 +1,4 @@
 <script setup>
-import ButtonCounter from "./components/ButtonCounter.vue";
 import BlogPost from "./components/BlogPost.vue";
 import PaginatePost from "./components/PaginatePost.vue";
 import { ref } from "vue";
@@ -17,18 +16,6 @@ const cambiarFavorito = (title) => {
 const next = () => {
   inicio.value = inicio.value + postXpage;
   fin.value = fin.value + postXpage;
-};
-
-const siguiente = () => {
-  inicio.value = inicio.value + postXpage;
-  fin.value = fin.value + postXpage;
-};
-
-const anterior = () => {
-  if (inicio.value > 0) {
-    inicio.value = inicio.value - postXpage;
-    fin.value = fin.value - postXpage;
-  }
 };
 
 const prev = () => {
@@ -50,7 +37,13 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     <h1>APP</h1>
     <h2>Mis Post Favorito: {{ favorito }}</h2>
 
-    <PaginatePost @next="next" @prev="prev" class="mb-2" />
+    <PaginatePost
+        :inicio="inicio"
+        :fin="fin"
+        @next="next"
+        @prev="prev"
+        class="mb-2"
+    />
 
     <BlogPost
         v-for="post in posts.slice(inicio, fin)"

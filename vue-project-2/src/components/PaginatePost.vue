@@ -1,4 +1,5 @@
 <script setup>
+defineProps(['inicio', 'fin']);
 const emit = defineEmits(["next", "prev"]);
 
 const activarSiguiente = () => {
@@ -13,15 +14,17 @@ const activarSiguiente = () => {
         @click="emit('prev')"
         type="button"
         class="btn btn-outline-primary"
+        :disabled="inicio <= 0"
     >
-      Previus
+      Previus {{ inicio }}
     </button>
     <button
         @click="activarSiguiente"
         type="button"
         class="btn btn-outline-primary"
+        :disabled="fin >= 100"
     >
-      Next
+      Next {{ fin }}
     </button>
   </div>
 </template>
