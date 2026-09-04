@@ -48,15 +48,9 @@ fetch("https://jsonplaceholder.typicode.com/posts")
 <template>
   <div class="container">
     <h1>APP</h1>
-    <h2>Mis Post Favoritos: {{ favorito }}</h2>
-    <button @click="next">Next provisorio</button>
-    <button @click="prev">Prev provisorio</button>
+    <h2>Mis Post Favorito: {{ favorito }}</h2>
 
-    <PaginatePost
-        class="mb-2"
-        @siguiente="siguiente"
-        @anterior="anterior"
-    ></PaginatePost>
+    <PaginatePost @next="next" @prev="prev" class="mb-2" />
 
     <BlogPost
         v-for="post in posts.slice(inicio, fin)"
