@@ -5,15 +5,16 @@ export const useFavoritosStore = defineStore("favoritos", () => {
     const favoritos = ref([]);
 
     const add = (poke) => {
-        // Evita duplicados verificando si ya existe por su nombre
-        const existe = favoritos.value.find((item) => item.name === poke.name);
-        if (!existe) {
-            favoritos.value.push(poke);
-        }
+        favoritos.value.push(poke);
+    };
+
+    const remove = (id) => {
+        favoritos.value = favoritos.value.filter((item) => item.id !== id);
     };
 
     return {
         favoritos,
         add,
+        remove,
     };
 });
