@@ -29,6 +29,11 @@ const router = createRouter({
       name: "NotFound",
       component: () => import("../views/NotFoundoView.vue"),
     },
+    {
+      path: "/favoritos",
+      name: "favoritos",
+      component: () => import("../views/FavoritosView.vue"),
+    },
   ]
 })
 
