@@ -8,7 +8,7 @@ const router = useRouter();
 const { getData, data, loading, error } = useGetData();
 
 const back = () => {
-  router.push("/pokemons");
+  router.push("/pokemones");
 };
 
 getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`);
